@@ -4,7 +4,7 @@ import pyttsx3
 import pyaudio
 # Initialize speech recognizer and TTS engine
 recognizer = sr.Recognizer()
-engine = pyttsx3.init() 
+engine = pyttsx3.init()
 
 def speak(text):
     engine.say(text)
@@ -72,6 +72,8 @@ if __name__ == "__main__":
                         speak("goodbye")
                         print("bye")
                         break
+                    else:
+                        speak("Hi",word[-1])
                 # Optional exit condition
                 # if "exit" in command.lower():
                 #     speak("Goodbye!")
