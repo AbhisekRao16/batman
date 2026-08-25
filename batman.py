@@ -18,7 +18,7 @@ def process_command(command):
         "youtube": "https://youtube.com",
         "linkedin": "https://linkedin.com",
     }
-    
+
     for site, url in actions.items():
         if site in command:
             webbrowser.open(url)
@@ -36,14 +36,15 @@ if __name__ == "__main__":
                 audio = recognizer.listen(source, timeout=2)
                 word = recognizer.recognize_google(audio)
 
-                if "batman" in word.lower():
+                if "batman" in word.lower() or "bad man 0" in word.lower():
+                    print(f"you said: {word}")
                     speak("Yes?")
                     print("Batman Active...")
 
                     # Listen for the name command
                     audio = recognizer.listen(source)
                     name = recognizer.recognize_google(audio).lower()
-
+                    print(f"You said : {name}")
                     # Respond to specific names with commands
                     if "surya" in name:
                         speak("Hi batman! What can I do for you?")
@@ -68,12 +69,16 @@ if __name__ == "__main__":
                         audio = recognizer.listen(source)
                         chandu_command = recognizer.recognize_google(audio)
                         speak("sulla puka")
+                    elif "sumit" in name: 
+                        speak("Anda Gandu! Dekh code run ho raha hai")
+                    elif "ankit" in name: 
+                        speak("Dekh re Anda Code kaise run ho raha hai!")
                     elif "stop" in name:
                         speak("goodbye")
                         print("bye")
                         break
                     else:
-                        speak("Hi",word[-1])
+                        speak(f"Hi {word[-1]}.What can I do for You?")
                 # Optional exit condition
                 # if "exit" in command.lower():
                 #     speak("Goodbye!")
