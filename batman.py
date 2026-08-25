@@ -2,6 +2,10 @@ import speech_recognition as sr
 import webbrowser
 import pyttsx3
 import pyaudio
+import openai
+import streamlit
+
+
 # Initialize speech recognizer and TTS engine
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
