@@ -2,6 +2,10 @@ import speech_recognition as sr
 import webbrowser
 import pyttsx3
 import pyaudio
+import openai
+import streamlit
+
+
 # Initialize speech recognizer and TTS engine
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
@@ -36,8 +40,8 @@ if __name__ == "__main__":
                 audio = recognizer.listen(source, timeout=2)
                 word = recognizer.recognize_google(audio)
 
-                if "batman" in word.lower() or "bad man 0" in word.lower():
-                    print(f"you said: {word}")
+                print(f"you said: {word}")
+                if "batman" in word.lower() or "bad man " in word.lower():
                     speak("Yes?")
                     print("Batman Active...")
 
